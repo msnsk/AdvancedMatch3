@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/shipPink_manned.png-2ae5dba8357d0803824930c62a774d7d.stex"
+
+[node name="EnemyPink" instance=ExtResource( 1 )]
+color = "pink"
+
+[node name="Sprite" parent="." index="0"]
+texture = SubResource( 1 )

@@ -1,0 +1,295 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Sounds/alien.wav" type="AudioStream" id=1]
+[ext_resource path="res://Enemies/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sounds/attack.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sounds/hit.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Bars/Bar.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=8]
+outline_size = 2
+font_data = ExtResource( 6 )
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/shipPink_manned.png-2ae5dba8357d0803824930c62a774d7d.stex"
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AttackSound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "attack"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 10, -10 ), Vector2( 10, 10 ), Vector2( -10, -10 ), Vector2( -10, 10 ), Vector2( 0, 0 ), Vector2( 10, -10 ), Vector2( 10, 10 ), Vector2( -10, -10 ), Vector2( -10, 10 ), Vector2( 0, 0 ), Vector2( 10, -10 ), Vector2( 10, 10 ), Vector2( -10, -10 ), Vector2( -10, 10 ), Vector2( 0, 0 ), Vector2( 10, -10 ), Vector2( 10, 10 ), Vector2( -10, -10 ), Vector2( -10, 10 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 10, 10 ), Vector2( 10, 10 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 3, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 10, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "hit"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 50, -50 ), Vector2( -50, 50 ), Vector2( -50, -50 ), Vector2( 50, 50 ), Vector2( -50, -50 ), Vector2( 50, -50 ), Vector2( -50, 50 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 5.0, 0.0, -10.0, 0.0, -5.0, 0.0, 10.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 0.784314, 0, 0, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 0.784314, 0, 0, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 0.784314, 0, 0, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 10, -10 ), Vector2( 15, 0 ), Vector2( 10, 10 ), Vector2( 0, 0 ), Vector2( -10, -10 ), Vector2( -15, 0 ), Vector2( -10, 10 ) ]
+}
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Bars" type="Node2D" parent="."]
+position = Vector2( 0, 128 )
+
+[node name="LifeBar" type="TextureProgress" parent="Bars"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.0
+margin_top = -35.0
+margin_right = 70.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 140, 0 )
+value = 100.0
+rounded = true
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 5 )
+tint_under = Color( 0.0509804, 0.0784314, 0.341176, 1 )
+tint_progress = Color( 0.501961, 0.839216, 1, 1 )
+nine_patch_stretch = true
+
+[node name="LifeValue" type="Label" parent="Bars"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 80.0
+margin_top = -10.0
+margin_right = 154.0
+margin_bottom = 10.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "999/999"
+align = 1
+
+[node name="AttackBar" type="TextureProgress" parent="Bars"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.0
+margin_top = -8.0
+margin_right = 70.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 140, 0 )
+max_value = 10.0
+step = 0.01
+rounded = true
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 5 )
+tint_under = Color( 0.0196078, 0.207843, 0.0980392, 1 )
+tint_progress = Color( 0.584314, 0.894118, 0.564706, 1 )
+nine_patch_stretch = true
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 6 )
+
+[node name="DamagePosition" type="Position2D" parent="."]
+position = Vector2( 0, 40 )
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/RESET = SubResource( 1 )
+anims/attack = SubResource( 7 )
+anims/die = SubResource( 3 )
+anims/hit = SubResource( 2 )
+anims/idle = SubResource( 5 )
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="DieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -10.0
+pitch_scale = 1.5
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
